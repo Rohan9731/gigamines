@@ -67,6 +67,7 @@ export default function InquiryForm() {
 
   const [turnstileState, setTurnstileState] = useState<'idle' | 'verifying' | 'verified'>('idle');
   const [turnstileLoaded, setTurnstileLoaded] = useState(false);
+  const [turnstileFailed, setTurnstileFailed] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -121,8 +122,8 @@ export default function InquiryForm() {
               setErrors((prev) => ({ ...prev, turnstile: undefined }));
             },
             'error-callback': () => {
+              setTurnstileFailed(true);
               setTurnstileState('idle');
-              setErrors((prev) => ({ ...prev, turnstile: 'Turnstile verification error. Please retry.' }));
             },
             'expired-callback': () => {
               setTurnstileState('idle');
@@ -566,8 +567,8 @@ export default function InquiryForm() {
             {/* Real Cloudflare Turnstile Container */}
             <div ref={turnstileContainerRef} className="min-h-[65px] flex items-center rounded"></div>
 
-            {/* Fallback Simulator (shows if Cloudflare CDN is unreachable or loading) */}
-            {!turnstileLoaded && (
+            {/* Fallback Simulator (shows if Cloudflare CDN is unreachable, loading, or domain pending) */}
+            {(!turnstileLoaded || turnstileFailed) && (
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
                 <div
                   onClick={handleSimulatedTurnstile}

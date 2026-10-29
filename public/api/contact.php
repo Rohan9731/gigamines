@@ -16,6 +16,7 @@ header('Referrer-Policy: strict-origin-when-cross-origin');
 $allowed_origins = [
     'https://m-mines.com',
     'https://gigamines.m-mines.com',
+    'https://gigamines-dev.vercel.app',
     'http://localhost:4321',
     'http://127.0.0.1:4321'
 ];

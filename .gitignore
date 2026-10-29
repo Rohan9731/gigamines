@@ -26,3 +26,5 @@ storage/inquiries/*.jsonl
 
 # jetbrains setting folder
 .idea/
+
+.vercel

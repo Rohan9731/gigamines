@@ -3,6 +3,8 @@
 > **India's First Giga-Scale Commercial Complex to Recycle, Recover, and Refine Critical Minerals (Li, Co, Ni) and Rare Earth Elements (Nd, Dy, Pr).**  
 > *A clean technology vertical of MiniMines Cleantech Solutions Pvt. Ltd.*
 
+🌐 **Live Production Showcase:** [https://gigamines-dev.vercel.app](https://gigamines-dev.vercel.app)
+
 ---
 
 ## ⚡ Core Value Proposition
