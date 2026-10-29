@@ -1,0 +1,103 @@
+---
+import { AlertCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+---
+
+<section id="why" class="py-20 lg:py-24 bg-[#081726] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <span class="text-xs font-mono text-[#EE7B2B] tracking-wider uppercase font-semibold">
+        STRATEGIC IMPERATIVE
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Outfit'] mt-2 tracking-tight">
+        Why Domestic Refining Matters
+      </h2>
+      <p class="text-base text-slate-300 mt-3 font-sans leading-relaxed">
+        India's clean mobility targets depend on critical minerals currently controlled by foreign monopolies. Giga Mines closes the loop within national borders.
+      </p>
+    </div>
+
+    <!-- Comparative Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <!-- Problem Card -->
+      <div class="p-8 rounded-xl bg-[#0D2237]/60 border border-slate-700/60 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 text-red-400 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+            <AlertCircle className="w-4 h-4 text-red-400" />
+            <span>The Supply Vulnerability</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white font-['Outfit'] mb-4">
+            100% Foreign Import Exposure
+          </h3>
+          <p class="text-sm text-slate-300 mb-6 leading-relaxed">
+            Virtually all lithium, cobalt, nickel, and rare earth elements entering Indian gigafactories originate overseas, exposing OEMs to export restrictions and volatile pricing.
+          </p>
+
+          <div class="space-y-3 text-xs font-mono text-slate-300 pt-4 border-t border-slate-800">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Import Dependency:</span>
+              <span class="text-red-400 font-bold">100% on key battery minerals</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Supply Chain Risk:</span>
+              <span class="text-red-400 font-bold">High Geopolitical Volatility</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Environmental Impact:</span>
+              <span class="text-red-400 font-bold">High mining carbon intensity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution Card -->
+      <div class="p-8 rounded-xl bg-[#0F2840] border border-[#2E87C6]/40 flex flex-col justify-between shadow-lg shadow-[#050E17]/50">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-[#EE7B2B] text-xs font-mono font-bold uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-[#EE7B2B]" />
+              <span>The Giga Mines Solution</span>
+            </div>
+            <!-- Indian Tricolor Micro-Indicator (Saffron, White, Green) -->
+            <div class="flex h-1.5 w-10 rounded-full overflow-hidden border border-slate-700/60 shadow-sm" title="India Sovereign Supply">
+              <span class="w-1/3 bg-[#EE7B2B]"></span>
+              <span class="w-1/3 bg-white"></span>
+              <span class="w-1/3 bg-emerald-500"></span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white font-['Outfit'] mb-4">
+            Sovereign Closed-Loop Refining
+          </h3>
+          <p class="text-sm text-slate-200 mb-6 leading-relaxed">
+            By recycling spent batteries and decommissioned permanent magnets domestically, Giga Mines produces high-purity chemical salts directly inside India.
+          </p>
+
+          <!-- Indian Tricolor Sequenced Metrics: Saffron (#EE7B2B), White (#FFFFFF), Green (#10B981) -->
+          <div class="space-y-3 text-xs font-mono text-slate-300 pt-4 border-t border-[#2E87C6]/20">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Target Chemical Purity:</span>
+              <span class="text-[#EE7B2B] font-bold">99.85% Battery Grade</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Carbon Intensity:</span>
+              <span class="text-white font-bold">-84% vs Virgin Mining</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Domestic Availability:</span>
+              <span class="text-emerald-400 font-bold">100% Domestic Supply</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-[#2E87C6]/20">
+          <a
+            href="#partner"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-[#EE7B2B] hover:text-[#D9681A] transition-colors font-mono"
+          >
+            <span>DISCUSS OFFTAKE PARTNERSHIP</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

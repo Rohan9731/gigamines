@@ -1,0 +1,80 @@
+---
+import { ExternalLink, ArrowRight } from 'lucide-react';
+
+const newsItems = [
+  {
+    title: 'MiniMines Inks Rs 350-Crore Deal with Karnataka Govt for Giga-Scale Refining Complex',
+    date: 'Commercial Expansion',
+    tag: 'GOVERNMENT MoU',
+    url: 'https://m-mines.com/minimines-inks-rs-350-cr-deal-with-karnataka-to-set-up-critical-minerals-refining-complex/',
+    desc: 'Strategic agreement to construct a state-of-the-art critical minerals and rare earths extraction vertical in Karnataka.',
+  },
+  {
+    title: 'Permanent Magnet Pilot Achieves 99.4% Didymium & Dysprosium Recovery Purity',
+    date: 'Technology Milestone',
+    tag: 'RARE EARTH PILOT',
+    url: '#technology',
+    desc: 'Groundbreaking trial successfully extracts magnetic-grade rare earths from end-of-life wind turbine rotors and EV motor magnets.',
+  },
+  {
+    title: 'MiniMines Recognized Among India’s Premier Clean Technology Pioneers',
+    date: 'National Media',
+    tag: 'INDUSTRY LEADERSHIP',
+    url: 'https://m-mines.com/category/minimines-news/',
+    desc: 'Proprietary Hybrid Hydrometallurgical (HHM) technology highlighted for zero-emission critical battery waste recycling.',
+  },
+];
+---
+
+<section id="news" class="py-20 lg:py-24 bg-[#091B2E] border-t border-[#2E87C6]/15 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+      <div>
+        <span class="text-xs font-mono text-[#4DA6E8] tracking-wider uppercase font-semibold">
+          MOMENTUM &amp; VALIDATION
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-['Outfit'] mt-1">
+          Recent Milestones
+        </h2>
+      </div>
+      <a
+        href="https://m-mines.com/category/minimines-news/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs font-bold text-[#EE7B2B] hover:text-[#D9681A] font-mono"
+      >
+        <span>ALL PRESS COVERAGE</span>
+        <ExternalLink className="w-3.5 h-3.5" />
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {newsItems.map((news, idx) => (
+        <a
+          key={idx}
+          href={news.url}
+          target={news.url.startsWith('http') ? '_blank' : '_self'}
+          rel={news.url.startsWith('http') ? 'noopener noreferrer' : ''}
+          class="p-6 rounded-xl bg-[#0D2237] border border-[#2E87C6]/20 hover:border-[#EE7B2B] transition-colors flex flex-col justify-between group"
+        >
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-mono mb-3">
+              <span class="px-2 py-0.5 rounded bg-[#163B5D] text-[#4DA6E8] font-semibold">{news.tag}</span>
+              <span class="text-slate-400">{news.date}</span>
+            </div>
+            <h3 class="text-base font-bold text-white font-['Outfit'] group-hover:text-[#EE7B2B] transition-colors mb-2 leading-snug">
+              {news.title}
+            </h3>
+            <p class="text-xs text-slate-300 font-sans leading-relaxed">
+              {news.desc}
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-[#2E87C6]/15 flex items-center justify-between text-xs font-mono text-slate-400 group-hover:text-white">
+            <span>READ STORY</span>
+            <ArrowRight className="w-4 h-4 text-[#EE7B2B]" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

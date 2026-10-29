@@ -1,0 +1,79 @@
+---
+import { Recycle, Droplets, Sparkles, ArrowRight } from 'lucide-react';
+---
+
+<section id="model" class="py-20 lg:py-24 bg-[#091B2E] border-t border-[#2E87C6]/15 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <span class="text-xs font-mono text-[#4DA6E8] tracking-wider uppercase font-semibold">
+        THE OPERATING MODEL
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Outfit'] mt-2 tracking-tight">
+        Recycle · Recovery · Refine
+      </h2>
+      <p class="text-sm font-mono text-[#EE7B2B] mt-1 uppercase font-semibold">
+        Extracting What Matters.
+      </p>
+      <p class="text-base text-slate-300 mt-3 font-sans leading-relaxed">
+        A seamless 3-stage thermodynamic process converting battery scrap and spent magnets into certified precursor materials.
+      </p>
+    </div>
+
+    <!-- 3 Stage Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Stage 1 -->
+      <div class="p-7 rounded-xl bg-[#0D2237] border border-[#2E87C6]/25 hover:border-[#EE7B2B] transition-colors flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-lg bg-[#081726] border border-[#2E87C6]/30 flex items-center justify-center text-[#2E87C6] mb-5">
+            <Recycle className="w-6 h-6" />
+          </div>
+          <div class="text-[11px] font-mono text-[#4DA6E8] uppercase tracking-wider mb-1">STAGE 01</div>
+          <h3 class="text-xl font-bold text-white font-['Outfit'] mb-2">Recycle</h3>
+          <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+            Safe aqueous de-energization and mechanical delamination isolating copper, aluminum foils, and black mass concentrate.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-[#2E87C6]/15 font-mono text-xs text-slate-400 flex justify-between">
+          <span>BLACK MASS YIELD:</span>
+          <span class="text-white font-bold">&gt; 92%</span>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="p-7 rounded-xl bg-[#0D2237] border border-[#2E87C6]/25 hover:border-[#EE7B2B] transition-colors flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-lg bg-[#081726] border border-[#2E87C6]/30 flex items-center justify-center text-[#2E87C6] mb-5">
+            <Droplets className="w-6 h-6" />
+          </div>
+          <div class="text-[11px] font-mono text-[#4DA6E8] uppercase tracking-wider mb-1">STAGE 02</div>
+          <h3 class="text-xl font-bold text-white font-['Outfit'] mb-2">Recovery</h3>
+          <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+            Proprietary HHM ambient hydrometallurgy operating below 80°C to selectively dissolve lithium, nickel, cobalt, and manganese.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-[#2E87C6]/15 font-mono text-xs text-slate-400 flex justify-between">
+          <span>SELECTIVE LEACHING:</span>
+          <span class="text-white font-bold">&gt; 96%</span>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="p-7 rounded-xl bg-[#0D2237] border border-[#2E87C6]/25 hover:border-[#EE7B2B] transition-colors flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-lg bg-[#081726] border border-[#2E87C6]/30 flex items-center justify-center text-[#EE7B2B] mb-5">
+            <Sparkles className="w-6 h-6" />
+          </div>
+          <div class="text-[11px] font-mono text-[#EE7B2B] uppercase tracking-wider mb-1">STAGE 03</div>
+          <h3 class="text-xl font-bold text-white font-['Outfit'] mb-2">Refine</h3>
+          <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+            Vacuum crystallization producing battery-grade salts (Li2CO3, CoSO4, NiSO4) ready for direct integration into cell manufacturing.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-[#2E87C6]/15 font-mono text-xs text-slate-400 flex justify-between">
+          <span>CHEMICAL PURITY:</span>
+          <span class="text-[#EE7B2B] font-bold">99.85% Battery Grade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

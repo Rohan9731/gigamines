@@ -1,0 +1,91 @@
+---
+import { Leaf, Droplets, Wind, ArrowRight } from 'lucide-react';
+---
+
+<section id="impact" class="py-20 lg:py-24 bg-[#081726] border-t border-[#2E87C6]/15 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Info -->
+      <div class="lg:col-span-5 space-y-5">
+        <span class="text-xs font-mono text-[#EE7B2B] tracking-wider uppercase font-semibold">
+          CIRCULARITY &amp; ESG PROOF
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Outfit'] tracking-tight">
+          True Environmental Decarbonization
+        </h2>
+        <p class="text-base text-slate-300 leading-relaxed font-sans">
+          Unlike legacy smelters that burn plastics and discharge toxic sulfur flue gases, Giga Mines’ closed-loop hydrometallurgy is audited for minimal environmental footprint.
+        </p>
+
+        <ul class="space-y-3 font-sans text-xs text-slate-300 pt-2">
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#EE7B2B]"></span>
+            <span><strong>Zero Liquid Discharge (ZLD):</strong> 100% of process water is recirculated.</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#EE7B2B]"></span>
+            <span><strong>Low Thermal Demand:</strong> Operates &lt;80°C with 70% less energy than smelting.</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#EE7B2B]"></span>
+            <span><strong>Scope 3 Credits:</strong> Audited life-cycle data provided for every metric ton.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right Benchmark Bars -->
+      <div class="lg:col-span-7 bg-[#0D2237] rounded-xl border border-[#2E87C6]/25 p-6 sm:p-8 space-y-6">
+        <div class="border-b border-[#2E87C6]/20 pb-3 flex items-center justify-between">
+          <span class="text-xs font-mono text-slate-400">
+            AUDITED COMPARISON: GIGA MINES HHM VS. VIRGIN OPEN-CAST MINING
+          </span>
+          <span class="text-[10px] font-mono text-emerald-400 font-bold">
+            AUDITED DATA
+          </span>
+        </div>
+
+        {/* Carbon */}
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-300 flex items-center gap-1.5">
+              <Leaf className="w-3.5 h-3.5 text-emerald-400" />
+              CO2 Footprint per kg of Refined Lithium
+            </span>
+            <span class="text-emerald-400 font-bold">-84% CO2 REDUCTION</span>
+          </div>
+          <div class="space-y-1 font-mono text-[11px]">
+            <div class="flex justify-between text-slate-400">
+              <span>Virgin Hard-Rock Spodumene Mining:</span>
+              <span class="text-rose-400 font-bold">17.5 kg CO2e</span>
+            </div>
+            <div class="w-full h-2 bg-[#081726] rounded-full overflow-hidden">
+              <div class="h-full bg-rose-500/60 rounded-full" style="width: 100%"></div>
+            </div>
+            <div class="flex justify-between text-slate-400 pt-1">
+              <span>Giga Mines HHM Closed Loop:</span>
+              <span class="text-[#EE7B2B] font-bold">2.8 kg CO2e</span>
+            </div>
+            <div class="w-full h-2 bg-[#081726] rounded-full overflow-hidden">
+              <div class="h-full bg-[#EE7B2B] rounded-full" style="width: 16%"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Water */}
+        <div class="space-y-2 pt-3 border-t border-[#2E87C6]/15">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-300 flex items-center gap-1.5">
+              <Droplets className="w-3.5 h-3.5 text-[#2E87C6]" />
+              Freshwater Consumption per MT Product
+            </span>
+            <span class="text-[#2E87C6] font-bold">-99.8% CONSERVED</span>
+          </div>
+          <div class="p-3 bg-[#081726] rounded-lg border border-[#2E87C6]/20 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400">Virgin Brine: ~2,200,000 L</span>
+            <span class="text-emerald-400 font-bold">Giga Mines ZLD: &lt; 1,200 L Recirculated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

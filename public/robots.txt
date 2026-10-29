@@ -1,0 +1,11 @@
+# Giga Mines • MiniMines Cleantech Solutions Pvt. Ltd.
+# Robots.txt crawler directives
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /storage/
+
+# Sitemap reference
+Sitemap: https://m-mines.com/sitemap.xml
+

@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Giga Mines | Critical Minerals & Rare Earth Elements Refining Complex",
+  description = "India's first giga-scale commercial complex to recycle, recover, and refine critical minerals (Li, Co, Ni) and rare earth elements (Nd, Dy, Pr). Powered by MiniMines Cleantech Solutions."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth overflow-x-hidden w-full max-w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Giga Mines, MiniMines, battery recycling, critical minerals, rare earth elements, lithium recovery, neodymium, cobalt refining, Karnataka cleantech, HHM hydrometallurgy" />
+    <meta name="author" content="MiniMines Cleantech Solutions Pvt. Ltd." />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://m-mines.com/gigamines" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Google Fonts: Outfit (Headings) & Inter (Body) & Space Grotesk (HUD) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#081726] text-[#E2E8F0] min-h-screen selection:bg-[#EE7B2B] selection:text-[#0F2840] antialiased overflow-x-hidden w-full max-w-full relative">
+    <slot />
+  </body>
+</html>

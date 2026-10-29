@@ -1,0 +1,77 @@
+---
+import { Car, BatteryMedium, Plane, Wind, ArrowUpRight } from 'lucide-react';
+
+const industries = [
+  {
+    icon: Car,
+    title: 'EV Automakers (OEMs)',
+    tag: 'CLOSED-LOOP OFFTAKE',
+    desc: 'Supply of cell-grade Lithium Carbonate and Nickel Sulfate, meeting Indian Battery Waste Management Rules (BWMR 2022) with verified Scope 3 decarbonization.',
+  },
+  {
+    icon: BatteryMedium,
+    title: 'Cell Gigafactories',
+    tag: 'pCAM PRECURSORS',
+    desc: 'Precipitation of Cobalt Sulfate (CoSO4) and Nickel Sulfate (NiSO4) tailored to specific cathode stoichiometry (NMC 622, NMC 811, LFP).',
+  },
+  {
+    icon: Plane,
+    title: 'Defense & Aerospace',
+    tag: 'SOVEREIGN RARE EARTHS',
+    desc: 'Domestic supply of high-coercivity Dysprosium (Dy) and Neodymium (Nd) alloys for guidance systems, avionics actuators, and radar electronics.',
+  },
+  {
+    icon: Wind,
+    title: 'Wind & Clean Energy',
+    tag: 'TURBINE GENERATORS',
+    desc: 'Closed-loop NdFeB magnet-to-magnet recycling from decommissioned offshore and onshore wind turbines, preserving vital magnetic remanence.',
+  },
+];
+---
+
+<section class="py-20 lg:py-24 bg-[#091B2E] border-t border-[#2E87C6]/15 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <span class="text-xs font-mono text-[#4DA6E8] tracking-wider uppercase font-semibold">
+        INDUSTRIES SERVED
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Outfit'] mt-2 tracking-tight">
+        Securing Core Supply Lines
+      </h2>
+      <p class="text-base text-slate-300 mt-3 font-sans leading-relaxed">
+        Providing verified battery precursor salts and rare earth alloys to industrial leaders.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {industries.map((ind, idx) => (
+        <div key={idx} class="p-6 rounded-xl bg-[#0D2237] border border-[#2E87C6]/20 hover:border-[#EE7B2B] transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-lg bg-[#081726] border border-[#2E87C6]/30 flex items-center justify-center text-[#2E87C6]">
+                <ind.icon className="w-5 h-5" />
+              </div>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#163B5D] text-[#4DA6E8]">
+                {ind.tag}
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-white font-['Outfit'] mb-2">
+              {ind.title}
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+              {ind.desc}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#2E87C6]/15 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400">STATUS: ACTIVE ALLOCATION</span>
+            <a href="#partner" class="text-[#EE7B2B] hover:text-[#D9681A]">
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

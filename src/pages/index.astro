@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.tsx';
+import HeroCanvas from '../components/HeroCanvas.tsx';
+import TrustStrip from '../components/TrustStrip.astro';
+import WhyItMatters from '../components/WhyItMatters.astro';
+import ThreeRModel from '../components/ThreeRModel.astro';
+import InsideFacilityMap from '../components/InsideFacilityMap.tsx';
+import TechPreview from '../components/TechPreview.tsx';
+import ElementTeaser from '../components/ElementTeaser.tsx';
+import MetricsScale from '../components/MetricsScale.astro';
+import IndustriesServed from '../components/IndustriesServed.astro';
+import CircularityImpact from '../components/CircularityImpact.astro';
+import NewsSection from '../components/NewsSection.astro';
+import InquiryForm from '../components/InquiryForm.tsx';
+import Footer from '../components/Footer.astro';
+import { ArrowUpRight, ArrowDown } from 'lucide-react';
+---
+
+<BaseLayout
+  title="Giga Mines | Critical Minerals & Rare Earth Elements Refining Complex"
+  description="India's first giga-scale commercial complex to recycle, recover, and refine critical minerals and rare earth elements. Powered by MiniMines Cleantech Solutions."
+>
+  <!-- BLOCK 0: Global Navigation Header -->
+  <Navbar client:load />
+
+  <!-- BLOCK 1: Hero Canvas & Value Proposition -->
+  <section id="top" class="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-radial from-[#0F2840] via-[#081726] to-[#050E17]">
+    <!-- 3R Circular Recycling Ecosystem Vector Canvas -->
+    <HeroCanvas client:load />
+
+    <!-- Blueprint & Grid background -->
+    <div class="absolute inset-0 blueprint-grid opacity-20 pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto text-center relative z-10 space-y-7">
+      <!-- Tagline -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F2840]/90 border border-[#2E87C6]/30 text-xs font-mono text-slate-300">
+        <span class="w-2 h-2 rounded-full bg-[#EE7B2B]"></span>
+        <span class="text-[#EE7B2B] font-bold">RECYCLE</span>
+        <span>•</span>
+        <span class="text-[#4DA6E8] font-bold">RECOVERY</span>
+        <span>•</span>
+        <span class="text-white font-bold">REFINE</span>
+        <span class="text-slate-500">—</span>
+        <span>EXTRACTING WHAT MATTERS</span>
+      </div>
+
+      <!-- Main Headline: State the Claim -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight font-['Outfit'] leading-[1.08] max-w-4xl mx-auto">
+        Building Global Supply Chains of <span class="text-[#4DA6E8]">Critical Minerals</span> &amp; <span class="text-[#EE7B2B]">Rare Earth Elements</span>.
+      </h1>
+
+      <!-- 5-Second Proposition Hook -->
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-sans leading-relaxed">
+        India's first giga-scale complex to recycle, recover, and refine battery-grade lithium, cobalt, nickel, and rare-earth magnet materials through proprietary hydrometallurgy.
+      </p>
+
+      <!-- Primary Action CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <a
+          href="#partner"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-[#EE7B2B] hover:bg-[#D9681A] text-[#0F2840] font-bold text-sm tracking-wide transition-all shadow-lg shadow-[#EE7B2B]/20 transform hover:-translate-y-0.5 cursor-pointer"
+        >
+          <span>Partner with Us</span>
+          <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+        </a>
+
+        <a
+          href="#facility"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#0F2840]/80 hover:bg-[#163B5D] text-slate-200 border border-[#2E87C6]/30 font-medium text-sm transition-all"
+        >
+          <span>Explore Facility Blueprint</span>
+          <ArrowDown className="w-4 h-4 text-[#2E87C6]" />
+        </a>
+      </div>
+
+      <!-- Clean 3-Metric Summary Strip -->
+      <div class="pt-8 max-w-3xl mx-auto grid grid-cols-3 gap-4 border-t border-[#2E87C6]/15 text-center">
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit'] block">₹350 Cr</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-0.5 block uppercase">Karnataka MoU</span>
+        </div>
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-[#4DA6E8] font-['Outfit'] block">20,000 TPA</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-0.5 block uppercase">Refining Capacity</span>
+        </div>
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-[#EE7B2B] font-['Outfit'] block">99.85%</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-0.5 block uppercase">Battery Grade Purity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 2: Trust Strip & Institutional Credibility -->
+  <TrustStrip />
+
+  <!-- BLOCK 3: Why It Matters & The Critical Supply Dilemma -->
+  <WhyItMatters />
+
+  <!-- BLOCK 4: Recycle · Recovery · Refine (The Model) -->
+  <ThreeRModel />
+
+  <!-- BLOCK 5: Inside Giga Mines (Interactive Facility Map) -->
+  <section id="facility" class="py-20 lg:py-24 bg-[#081726] border-t border-[#2E87C6]/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono text-[#4DA6E8] tracking-wider uppercase font-semibold">
+          FACILITY ARCHITECTURE
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Outfit'] mt-2 tracking-tight">
+          Inside Giga Mines
+        </h2>
+        <p class="text-base text-slate-300 mt-3 font-sans leading-relaxed">
+          Interactive schematic of the 230,000 sq ft Karnataka refining complex. Inspect individual operational zones below.
+        </p>
+      </div>
+
+      <InsideFacilityMap client:visible />
+    </div>
+  </section>
+
+  <!-- BLOCK 6: Technology Preview (HHM vs Magnet Recycling) -->
+  <section class="py-20 bg-[#091B2E] border-t border-[#2E87C6]/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <TechPreview client:visible />
+    </div>
+  </section>
+
+  <!-- BLOCK 7: Elements We Recover (Periodic Matrix) -->
+  <section id="elements" class="py-20 lg:py-24 bg-[#081726] border-t border-[#2E87C6]/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ElementTeaser client:visible />
+    </div>
+  </section>
+
+  <!-- BLOCK 8: Numbers & Scale (Industrial Metrics) -->
+  <MetricsScale />
+
+  <!-- BLOCK 9: Industries We Serve -->
+  <IndustriesServed />
+
+  <!-- BLOCK 10: Circularity Proof & Life-Cycle Assessment -->
+  <CircularityImpact />
+
+  <!-- BLOCK 11: News & Momentum -->
+  <NewsSection />
+
+  <!-- BLOCK 12: Partner with Us (Inquiry Form) -->
+  <section class="py-20 lg:py-24 bg-[#081726] border-t border-[#2E87C6]/15 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <InquiryForm client:load />
+    </div>
+  </section>
+
+  <!-- BLOCK 13: Technical Footer & Statutory Compliance -->
+  <Footer />
+</BaseLayout>

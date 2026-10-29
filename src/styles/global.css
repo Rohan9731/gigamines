@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0F2840;
+  --color-navy-dark: #081726;
+  --color-navy-darker: #050E17;
+  --color-navy-light: #163B5D;
+  --color-navy-card: #0D2237;
+  --color-orange: #EE7B2B;
+  --color-orange-hover: #D9681A;
+  --color-blue: #2E87C6;
+  --color-blue-light: #4DA6E8;
+  --color-blue-dim: #1C547C;
+  --font-display: "Outfit", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #081726;
+    color: #E2E8F0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  ::selection {
+    background-color: #EE7B2B;
+    color: #0F2840;
+  }
+}
+
+/* Blueprint and grid utilities */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(46, 135, 198, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 135, 198, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(46, 135, 198, 0.22) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.dense-dot-grid {
+  background-image: radial-gradient(rgba(238, 123, 43, 0.25) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+}
+
+/* Technical HUD Borders */
+.tech-corner-tl {
+  position: relative;
+}
+.tech-corner-tl::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #2E87C6;
+  border-left: 2px solid #2E87C6;
+  pointer-events: none;
+}
+.tech-corner-br {
+  position: relative;
+}
+.tech-corner-br::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid #EE7B2B;
+  border-right: 2px solid #EE7B2B;
+  pointer-events: none;
+}
+
+/* Glow effects */
+.glow-orange {
+  box-shadow: 0 0 25px -4px rgba(238, 123, 43, 0.45);
+}
+.glow-blue {
+  box-shadow: 0 0 25px -4px rgba(46, 135, 198, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #081726;
+}
+::-webkit-scrollbar-thumb {
+  background: #163B5D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2E87C6;
+}
