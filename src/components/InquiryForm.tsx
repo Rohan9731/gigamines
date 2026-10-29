@@ -65,9 +65,6 @@ export default function InquiryForm() {
     faxNumber: '',
   });
 
-  const [turnstileState, setTurnstileState] = useState<'idle' | 'verifying' | 'verified'>('idle');
-  const [turnstileLoaded, setTurnstileLoaded] = useState(false);
-  const [turnstileFailed, setTurnstileFailed] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -112,29 +109,25 @@ export default function InquiryForm() {
     const initTurnstile = () => {
       if (window.turnstile && turnstileContainerRef.current && !widgetIdRef.current) {
         try {
-          // Real Cloudflare Production Sitekey
           const wid = window.turnstile.render(turnstileContainerRef.current, {
             sitekey: '0x4AAAAAAFquFQIBFTsh-TuA',
             theme: 'dark',
             callback: (token: string) => {
               setFormData((prev) => ({ ...prev, turnstileToken: token }));
-              setTurnstileState('verified');
               setErrors((prev) => ({ ...prev, turnstile: undefined }));
             },
             'error-callback': () => {
-              setTurnstileFailed(true);
-              setTurnstileState('idle');
+              setFormData((prev) => ({ ...prev, turnstileToken: '' }));
+              setErrors((prev) => ({ ...prev, turnstile: 'Turnstile verification error. Please retry.' }));
             },
             'expired-callback': () => {
-              setTurnstileState('idle');
               setFormData((prev) => ({ ...prev, turnstileToken: '' }));
               setErrors((prev) => ({ ...prev, turnstile: 'Verification token expired. Please re-verify.' }));
             },
           });
           widgetIdRef.current = wid;
-          setTurnstileLoaded(true);
         } catch {
-          // Fallback if blocked
+          // ignore
         }
       }
     };
@@ -146,14 +139,8 @@ export default function InquiryForm() {
       }
     }, 150);
 
-    // Timeout after 3s to show manual fallback if adblocker blocks Cloudflare CDN
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-    }, 3000);
-
     return () => {
       clearInterval(interval);
-      clearTimeout(timeout);
       if (window.turnstile && widgetIdRef.current) {
         try {
           window.turnstile.remove(widgetIdRef.current);
@@ -164,18 +151,6 @@ export default function InquiryForm() {
       }
     };
   }, [isSuccess]);
-
-  // Fallback simulator for offline or adblocked environments
-  const handleSimulatedTurnstile = () => {
-    if (turnstileState === 'verified') return;
-    setTurnstileState('verifying');
-    setTimeout(() => {
-      const mockToken = `cf-ts-${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 9)}`;
-      setFormData((prev) => ({ ...prev, turnstileToken: mockToken }));
-      setTurnstileState('verified');
-      setErrors((prev) => ({ ...prev, turnstile: undefined }));
-    }, 750);
-  };
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -213,7 +188,7 @@ export default function InquiryForm() {
       newErrors.dpdpConsent = 'Please agree to the DPDP Act 2023 consent to submit.';
     }
 
-    if (!formData.turnstileToken || turnstileState !== 'verified') {
+    if (!formData.turnstileToken) {
       newErrors.turnstile = 'Please complete the Cloudflare Turnstile security verification.';
     }
 
@@ -325,7 +300,13 @@ export default function InquiryForm() {
     setIsSuccess(false);
     setTrackingId('');
     setSubmittedDetails(null);
-    setTurnstileState('idle');
+    if (window.turnstile && widgetIdRef.current) {
+      try {
+        window.turnstile.reset(widgetIdRef.current);
+      } catch {
+        // ignore
+      }
+    }
     setFormData({
       role: 'oem',
       name: '',
@@ -566,49 +547,6 @@ export default function InquiryForm() {
           <div className="p-3.5 rounded-lg bg-[#081726] border border-[#2E87C6]/25">
             {/* Real Cloudflare Turnstile Container */}
             <div ref={turnstileContainerRef} className="min-h-[65px] flex items-center rounded"></div>
-
-            {/* Fallback Simulator (shows if Cloudflare CDN is unreachable, loading, or domain pending) */}
-            {(!turnstileLoaded || turnstileFailed) && (
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
-                <div
-                  onClick={handleSimulatedTurnstile}
-                  className={`flex items-center gap-3 px-3 py-2 rounded border cursor-pointer select-none transition-all ${turnstileState === 'verified'
-                      ? 'bg-emerald-500/10 border-emerald-400/50'
-                      : 'bg-[#0D2237] border-slate-700 hover:border-[#2E87C6]'
-                    }`}
-                >
-                  <div
-                    className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${turnstileState === 'verified'
-                        ? 'bg-emerald-500 border-emerald-500 text-[#0F2840]'
-                        : turnstileState === 'verifying'
-                          ? 'border-[#2E87C6] bg-transparent'
-                          : 'border-slate-500 bg-[#081726]'
-                      }`}
-                  >
-                    {turnstileState === 'verifying' ? (
-                      <RefreshCw className="w-3.5 h-3.5 text-[#38BDF8] animate-spin" />
-                    ) : turnstileState === 'verified' ? (
-                      <Check className="w-3.5 h-3.5 stroke-[3] text-white" />
-                    ) : null}
-                  </div>
-
-                  <span className="text-xs font-mono font-medium text-slate-200">
-                    {turnstileState === 'verified'
-                      ? 'Verification Complete'
-                      : turnstileState === 'verifying'
-                        ? 'Verifying human challenge...'
-                        : 'Verify you are human (Cloudflare Turnstile)'}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400">
-                  <svg viewBox="0 0 48 48" className="w-4 h-4 fill-current text-[#F6821F]" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M37.3 20.3c-.6-4.5-4.5-8-9.3-8-4 0-7.5 2.5-8.8 6.1C18.4 18.1 17.6 18 16.7 18 12.4 18 9 21.4 9 25.7c0 .5 0 1 .1 1.5C6.1 27.8 4 30.7 4 34c0 4.4 3.6 8 8 8h25c5 0 9-4 9-9 0-4.6-3.4-8.3-7.7-8.9-.4-1.3-.8-2.6-1-3.8z" />
-                  </svg>
-                  <span>CLOUDFLARE TURNSTILE • ASVS L1</span>
-                </div>
-              </div>
-            )}
           </div>
           {errors.turnstile && <p className="text-[11px] text-rose-400 font-mono -mt-3">{errors.turnstile}</p>}
 
